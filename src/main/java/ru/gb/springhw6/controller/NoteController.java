@@ -1,5 +1,6 @@
 package ru.gb.springhw6.controller;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import ru.gb.springhw6.model.Note;
 import ru.gb.springhw6.services.NoteService;
 import org.springframework.http.HttpStatus;
@@ -7,19 +8,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@Controller
 @RestController
-@RequestMapping("/notebook")
+@RequestMapping("/notes")
 @RequiredArgsConstructor
 
 public class NoteController {
     private final NoteService noteService;
 
-    @PostMapping   ("/create")                                //Создание заметки
+        @PostMapping   ("/create")                                //Создание заметки
     public ResponseEntity<Note> createNote(@RequestBody Note note){
         return new ResponseEntity<>(noteService.createNote(note), HttpStatus.CREATED);
     }
 
-    @PostMapping   ("/notebook")                                //Добавление заметки
+    @PostMapping   ("/notes")                                //Добавление заметки
     public ResponseEntity<Note> addNote(@RequestBody Note note){
         return new ResponseEntity<>(noteService.addNote(note), HttpStatus.OK);
     }

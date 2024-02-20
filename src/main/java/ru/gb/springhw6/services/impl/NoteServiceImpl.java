@@ -22,7 +22,7 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public Note updateNote(Long id, Note note) {
+    public Note updateNote(Long id, Note note) {        //Редактирование заметки
         Note noteById = getNoteById(id);
         noteById.setTitle(note.getTitle());
         noteById.setContent(note.getContent());
@@ -33,19 +33,14 @@ public class NoteServiceImpl implements NoteService {
         return noteRepo.findAll();
     }
 
+
+
+
     @Override                                //Получение заметки по id.
     public Note getNoteById(Long id) {
         return noteRepo.findById(id).orElseThrow(null);
     }
 
-//    @Override                               //Редактирование заметки
-//       public Note updateById(Note note) {
-//        Note noteById = getNoteById(note.getId());
-//
-//        /*productById.setCount(product.getCount());*/
-//        noteById.setName(note.getName());
-//        noteById.setQuantity(product.getQuantity());
-//    }
 
     @Override                                //Удаление заметки
     public void deleteNote(Long id) {

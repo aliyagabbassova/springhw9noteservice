@@ -7,9 +7,9 @@ import java.util.List;
 public interface NoteService {
     List<Note> getAllNote();
 
+
     Note getNoteById(Long id);
 
-//    Note updateNote(Note note);
     Note createNote(Note note);
     Note addNote(Note note);
     Note updateNote (Long id, Note note);
