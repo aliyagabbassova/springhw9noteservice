@@ -15,11 +15,10 @@ import java.util.List;
 
 public class NoteController {
     private final NoteService noteService;
-
-//    @GetMapping public String getAllNotes(Model model) {
-//        List<Note> notes = noteService.getAll();
-//        model.addAttribute("notes", notes); return "notes"; // имя HTML-шаблона } }
-//    }
+@GetMapping("/hello")
+public String hello() {
+    return "hello from notes";
+}
 
         @PostMapping   ("/create")                                //Создание заметки
     public ResponseEntity<Note> createNote(@RequestBody Note note){
